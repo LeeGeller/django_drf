@@ -4,7 +4,7 @@ from django.db import models
 class Course(models.Model):
     title_course = models.CharField(max_length=200, verbose_name="Название курса")
     preview_course = models.ImageField(
-        upload_to="courses/", verbose_name="Превью курса"
+        upload_to="courses/", verbose_name="Превью курса", blank=True, null=True
     )
     description_course = models.TextField(verbose_name="Описание курса")
     created_at_course = models.DateTimeField(
