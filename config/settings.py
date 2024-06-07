@@ -136,3 +136,4 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 PHONENUMBER_DEFAULT_REGION = "RU"
+AUTH_USER_MODEL = "users.User"
