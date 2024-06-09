@@ -22,7 +22,7 @@ class Course(models.Model):
 class Lesson(models.Model):
     title_lesson = models.CharField(max_length=200, verbose_name="Название урока")
     preview_lesson = models.ImageField(
-        upload_to="lessons/", verbose_name="Превью урока"
+        upload_to="lessons/", verbose_name="Превью урока", blank=True, null=True
     )
     description_lesson = models.TextField(verbose_name="Описание урока")
     link_to_video = models.URLField(verbose_name="Ссылка на видео")
