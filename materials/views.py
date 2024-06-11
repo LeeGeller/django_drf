@@ -1,17 +1,16 @@
-from rest_framework import generics
+from rest_framework import generics, viewsets
 from rest_framework.generics import (
     ListAPIView,
     UpdateAPIView,
     RetrieveAPIView,
     DestroyAPIView,
 )
-from rest_framework.viewsets import ModelViewSet
 
 from materials.models import Course, Lesson
 from materials.serializer import CourseSerializer, LessonSerializer
 
 
-class CourseViewSet(ModelViewSet):
+class CourseViewSet(viewsets.ModelViewSet):
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
 
