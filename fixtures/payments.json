@@ -18,8 +18,8 @@
     "pk": 2,
     "fields": {
       "user": 2,
-      "created_ad": "2024-06-11T15:00:00Z",
-      "date_of_payment": "2024-06-11",
+      "created_ad": "2024-07-11T15:00:00Z",
+      "date_of_payment": "2024-07-11",
       "courses": null,
       "lessons": 2,
       "sum_of_payment": 200,
