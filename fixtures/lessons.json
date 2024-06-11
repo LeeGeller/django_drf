@@ -1,0 +1,26 @@
+[
+    {
+        "model": "materials.lesson",
+        "pk": 1,
+        "fields": {
+            "title_lesson": "Introduction to Python",
+            "preview_lesson": null,
+            "description_lesson": "This lesson covers the basics of Python programming.",
+            "link_to_video": "https://example.com/python_intro",
+            "created_at_lesson": "2024-06-11T12:00:00Z",
+            "lessons": 1
+        }
+    },
+    {
+        "model": "materials.lesson",
+        "pk": 2,
+        "fields": {
+            "title_lesson": "Advanced Django",
+            "preview_lesson": null,
+            "description_lesson": "This lesson covers advanced topics in Django.",
+            "link_to_video": "https://example.com/django_advanced",
+            "created_at_lesson": "2024-06-11T13:00:00Z",
+            "lessons": 2
+        }
+    }
+]

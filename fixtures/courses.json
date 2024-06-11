@@ -1,0 +1,22 @@
+[
+  {
+    "model": "materials.course",
+    "pk": 1,
+    "fields": {
+      "title_course": "Python для начинающих",
+      "preview_course": null,
+      "description_course": "Курс по основам программирования на Python",
+      "created_at_course": "2024-06-11T10:00:00Z"
+    }
+  },
+  {
+    "model": "materials.course",
+    "pk": 2,
+    "fields": {
+      "title_course": "Web-разработка с Django",
+      "preview_course": null,
+      "description_course": "Изучите основы создания веб-приложений с помощью Django",
+      "created_at_course": "2024-06-11T11:00:00Z"
+    }
+  }
+]

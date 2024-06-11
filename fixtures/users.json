@@ -1,0 +1,36 @@
+[
+    {
+        "model": "users.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$260000$Y9hbbUjPZ9cn$YH23sBdjy/jlhT6HzUpG0F7jx8rRl/fmMhbRAq0mUJ0=",
+            "is_superuser": false,
+            "email": "student1@example.com",
+            "phone": "+1234567890",
+            "city": "Moscow",
+            "avatar": null,
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2024-06-10T12:00:00Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "users.user",
+        "pk": 2,
+        "fields": {
+            "password": "pbkdf2_sha256$260000$Y9hbbUjPZ9cn$YH23sBdjy/jlhT6HzUpG0F7jx8rRl/fmMhbRAq0mUJ0=",
+            "is_superuser": false,
+            "email": "student2@example.com",
+            "phone": "+0987654321",
+            "city": "Saint Petersburg",
+            "avatar": null,
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2024-06-10T13:00:00Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    }
+]
