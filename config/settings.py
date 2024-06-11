@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "django_extensions",
     "phonenumber_field",
     "rest_framework",
+    "django_filters",
     "materials",
     "users",
 ]
@@ -89,6 +90,10 @@ DATABASES = {
         "HOST": os.getenv("HOST"),
         "PORT": os.getenv("PORT"),
     }
+}
+
+REST_FRAMEWORK = {
+    "DEFAULT_FILTER_BACKENDS": ("django_filters.rest_framework.DjangoFilterBackend",),
 }
 
 # Password validation
