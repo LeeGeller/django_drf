@@ -29,7 +29,9 @@ class Lesson(models.Model):
     created_at_lesson = models.DateTimeField(
         auto_now_add=True, verbose_name="Дата создания урока"
     )
-    courses = models.ForeignKey(Course, on_delete=models.CASCADE)
+    lessons = models.ForeignKey(
+        Course, on_delete=models.CASCADE, related_name="lessons", blank=True, null=True
+    )
 
     def __str__(self):
         return self.title_lesson
