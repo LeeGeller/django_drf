@@ -1,6 +1,7 @@
 from django.urls import path
 from rest_framework.routers import DefaultRouter
 
+from materials.apps import MaterialsConfig
 from materials.views import (
     CourseViewSet,
     LessonCreateAPIView,
@@ -10,7 +11,7 @@ from materials.views import (
     LessonDestroyAPIView,
 )
 
-app_name = "materials"
+app_name = MaterialsConfig.name
 router = DefaultRouter()
 router.register(r"course", CourseViewSet, basename="course")
 
