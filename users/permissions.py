@@ -11,5 +11,5 @@ class IsModerator(BasePermission):
 class IsOwner(BasePermission):
     message = "You must be owner"
 
-    def has_permission(self, request, view):
-        return request.user.owner == request.user
+    def has_object_permission(self, request, view, obj):
+        return obj.owner == request.user
