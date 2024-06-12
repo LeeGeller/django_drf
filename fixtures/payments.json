@@ -1,30 +1,28 @@
 [
-  {
-    "model": "users.payments",
-    "pk": 1,
-    "fields": {
-      "user": 1,
-      "created_ad": "2024-06-11T14:00:00Z",
-      "date_of_payment": "2024-06-11",
-      "courses": 1,
-      "lessons": null,
-      "sum_of_payment": 1500,
-      "cash": true,
-      "transfer_to_account": false
+{
+        "model": "users.payments",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "created_ad": "2024-06-12T10:00:00Z",
+            "date_of_payment": "2024-06-11T14:30:00Z",
+            "courses": 1,
+            "lessons": null,
+            "type_of_payment": 1,
+            "sum_of_payment": 100
+        }
+    },
+    {
+        "model": "users.payments",
+        "pk": 2,
+        "fields": {
+            "user": 2,
+            "created_ad": "2024-06-12T11:00:00Z",
+            "date_of_payment": "2024-06-11T15:30:00Z",
+            "courses": null,
+            "lessons": 1,
+            "type_of_payment": 2,
+            "sum_of_payment": 200
+        }
     }
-  },
-  {
-    "model": "users.payments",
-    "pk": 2,
-    "fields": {
-      "user": 2,
-      "created_ad": "2024-07-11T15:00:00Z",
-      "date_of_payment": "2024-07-11",
-      "courses": null,
-      "lessons": 2,
-      "sum_of_payment": 200,
-      "cash": false,
-      "transfer_to_account": true
-    }
-  }
 ]

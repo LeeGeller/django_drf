@@ -25,6 +25,7 @@ class User(AbstractUser):
 
 
 class Payments(models.Model):
+    TYPE_OF_PAYMENTS = [(1, "Оплата курса"), (2, "Оплата урока")]
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
@@ -34,9 +35,7 @@ class Payments(models.Model):
         null=True,
     )
     created_ad = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
-    date_of_payment = models.DateField(
-        verbose_name="Дата оплаты", blank=True, null=True
-    )
+    date_of_payment = models.DateTimeField(verbose_name="Дата оплаты")
     courses = models.ForeignKey(
         Course,
         verbose_name="Оплаченный курс",
@@ -53,13 +52,12 @@ class Payments(models.Model):
         on_delete=models.CASCADE,
         related_name="payment_lessons",
     )
+    type_of_payment = models.CharField(
+        max_length=150,
+        verbose_name="Тип оплаты",
+        choices=TYPE_OF_PAYMENTS,
+    )
     sum_of_payment = models.PositiveIntegerField(verbose_name="Сумма оплаты")
-    cash = models.BooleanField(
-        verbose_name="Наличные", default=False, blank=True, null=True
-    )
-    transfer_to_account = models.BooleanField(
-        verbose_name="Перевод на счет", default=False, blank=True, null=True
-    )
 
     def __str__(self):
         return (
