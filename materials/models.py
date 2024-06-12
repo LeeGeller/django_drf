@@ -10,6 +10,13 @@ class Course(models.Model):
     created_at_course = models.DateTimeField(
         auto_now_add=True, verbose_name="Дата создания курса"
     )
+    owner = models.ForeignKey(
+        "users.User",
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+        related_name="course_owner",
+    )
 
     def __str__(self):
         return self.title_course
@@ -31,6 +38,13 @@ class Lesson(models.Model):
     )
     lessons = models.ForeignKey(
         Course, on_delete=models.CASCADE, related_name="lessons", blank=True, null=True
+    )
+    owner = models.ForeignKey(
+        "users.User",
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+        related_name="lesson_owner",
     )
 
     def __str__(self):
