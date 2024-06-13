@@ -80,5 +80,25 @@
         "groups": [],
         "user_permissions": []
     }
+},
+{
+    "model": "users.user",
+    "pk": 7,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$W6130N3t4lBWI6EyizVVx9$1/EhQHZ/tgeOPfkMarjwmzKDMkMYbe3YoXdso2UEIJw=",
+        "last_login": null,
+        "is_superuser": false,
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "date_joined": "2024-06-13T16:09:55.732Z",
+        "email": "userhascourse@gmail.com",
+        "phone": null,
+        "city": "Rostov",
+        "avatar": "",
+        "is_active": true,
+        "groups": [],
+        "user_permissions": []
+    }
 }
 ]

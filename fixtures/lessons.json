@@ -9,7 +9,7 @@
         "link_to_video": "https://example.com/python_intro",
         "created_at_lesson": "2024-06-11T12:00:00Z",
         "lessons": 1,
-        "owner": null
+        "owner": 7
     }
 },
 {
@@ -35,7 +35,7 @@
         "link_to_video": "https://www.google.com/search?client=ubuntu-sn&hs=Ixi&sca_esv=d517c7e4cb2bc49a&sca_upv",
         "created_at_lesson": "2024-06-11T10:50:24.492Z",
         "lessons": null,
-        "owner": 3
+        "owner": 7
     }
 }
 ]
