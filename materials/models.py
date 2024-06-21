@@ -61,6 +61,16 @@ class Lesson(models.Model):
 
 
 class Subscription(models.Model):
-    user = models.ForeignKey("users.User", on_delete=models.CASCADE)
-    course = models.ForeignKey("materials.Course", on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        "users.User", on_delete=models.CASCADE, blank=True, null=True
+    )
+    course = models.ForeignKey(
+        "materials.Course", on_delete=models.CASCADE, blank=True, null=True
+    )
     created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ("user", "course")  # Уникальная связка пользователя и курса
+
+    def __str__(self):
+        return f"{self.user.username} подписан на {self.course.title_course}"
