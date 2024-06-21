@@ -14,6 +14,8 @@ class User(AbstractUser):
         upload_to="users/", blank=True, null=True, verbose_name="Аватар"
     )
     is_active = models.BooleanField(default=False, verbose_name="Активирован")
+    is_subscription = models.BooleanField(default=False, verbose_name="Подписка")
+
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
 
