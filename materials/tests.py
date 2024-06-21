@@ -95,3 +95,44 @@ class CourseTestCases(APITestCase):
         data_title = data["title_course"]
         actual_title = response.data["title_course"]
         self.assertEqual(data_title, actual_title)
+
+
+class SubscriptionTestCases(APITestCase):
+    fixtures = [
+        "fixtures/courses_test.json",
+        "fixtures/users_test.json",
+        "fixtures/subscriptions_test.json",
+        "fixtures/group_test.json",
+    ]
+
+    def setUp(self):
+        self.client = APIClient()
+        self.user = User.objects.get(pk=1)
+        self.user_2 = User.objects.get(pk=2)
+        self.client.force_authenticate(user=self.user)
+        self.client.force_authenticate(user=self.user_2)
+        self.course_2 = Course.objects.get(pk=2)
+
+    def test_activate_subscription(self):
+        url = reverse("materials:subscription")
+
+        self.client.force_authenticate(user=self.user)
+
+        response = self.client.post(url, {"course": 1}, format="json")
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        self.assertEqual(response.data["message"], "Вы подписались на курс")
+        self.assertTrue(Subscription.objects.filter(user=self.user, course=1).exists())
+
+    def test_deactivate_subscription(self):
+        url = reverse("materials:subscription")
+
+        self.client.force_authenticate(user=self.user_2)
+
+        response = self.client.post(url, {"course": 2}, format="json")
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        self.assertEqual(response.data["message"], "Вы отписались от курса")
+        self.assertFalse(Subscription.objects.filter(user=self.user, course=2).exists())
