@@ -1,0 +1,20 @@
+[
+    {
+        "model": "materials.subscription",
+        "pk": 1,
+        "fields": {
+            "user": 2,
+            "course": 1,
+            "created_at": "2023-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "materials.subscription",
+        "pk": 2,
+        "fields": {
+            "user": 2,
+            "course": 2,
+            "created_at": "2023-01-01T00:00:00Z"
+        }
+    }
+]
