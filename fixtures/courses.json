@@ -1,62 +1,62 @@
 [
 {
-    "model": "materials.course",
-    "pk": 1,
-    "fields": {
-        "title_course": "Python для начинающих",
-        "preview_course": "",
-        "description_course": "I changed",
-        "link_to_video_course": null,
-        "created_at_course": "2024-06-11T10:00:00Z",
-        "owner": 7
-    }
+  "model": "materials.course",
+  "pk": 1,
+  "fields": {
+    "title_course": "Python для начинающих",
+    "preview_course": "",
+    "description_course": "I changed",
+    "link_to_video_course": null,
+    "created_at_course": "2024-06-11T10:00:00Z",
+    "owner": 7
+  }
 },
 {
-    "model": "materials.course",
-    "pk": 2,
-    "fields": {
-        "title_course": "Web-разработка с Django",
-        "preview_course": "",
-        "description_course": "Изучите основы создания веб-приложений с помощью Django",
-        "link_to_video_course": null,
-        "created_at_course": "2024-06-11T11:00:00Z",
-        "owner": null
-    }
+  "model": "materials.course",
+  "pk": 2,
+  "fields": {
+    "title_course": "Web-разработка с Django",
+    "preview_course": "",
+    "description_course": "Изучите основы создания веб-приложений с помощью Django",
+    "link_to_video_course": null,
+    "created_at_course": "2024-06-11T11:00:00Z",
+    "owner": null
+  }
 },
 {
-    "model": "materials.course",
-    "pk": 3,
-    "fields": {
-        "title_course": "Course 3",
-        "preview_course": "",
-        "description_course": "Description course",
-        "link_to_video_course": null,
-        "created_at_course": "2024-06-09T14:58:53.457Z",
-        "owner": null
-    }
+  "model": "materials.course",
+  "pk": 3,
+  "fields": {
+    "title_course": "Course 3",
+    "preview_course": "",
+    "description_course": "Description course",
+    "link_to_video_course": null,
+    "created_at_course": "2024-06-09T14:58:53.457Z",
+    "owner": null
+  }
 },
 {
-    "model": "materials.course",
-    "pk": 4,
-    "fields": {
-        "title_course": "Course 1",
-        "preview_course": "",
-        "description_course": "Description course",
-        "link_to_video_course": null,
-        "created_at_course": "2024-06-21T10:20:51.621Z",
-        "owner": 3
-    }
+  "model": "materials.course",
+  "pk": 4,
+  "fields": {
+    "title_course": "Course 1",
+    "preview_course": "",
+    "description_course": "Description course",
+    "link_to_video_course": null,
+    "created_at_course": "2024-06-21T10:20:51.621Z",
+    "owner": 3
+  }
 },
 {
-    "model": "materials.course",
-    "pk": 5,
-    "fields": {
-        "title_course": "Course 1",
-        "preview_course": "",
-        "description_course": "Description course",
-        "link_to_video_course": "https://www.youtube.com/channel/UCvtkFm0XlCLqyvtP7UpqAoA",
-        "created_at_course": "2024-06-21T10:29:02.262Z",
-        "owner": 3
-    }
+  "model": "materials.course",
+  "pk": 5,
+  "fields": {
+    "title_course": "Course 1",
+    "preview_course": "",
+    "description_course": "Description course",
+    "link_to_video_course": "https://www.youtube.com/channel/UCvtkFm0XlCLqyvtP7UpqAoA",
+    "created_at_course": "2024-06-21T10:29:02.262Z",
+    "owner": 3
+  }
 }
 ]
