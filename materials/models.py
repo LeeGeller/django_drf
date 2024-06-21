@@ -7,6 +7,9 @@ class Course(models.Model):
         upload_to="courses/", verbose_name="Превью курса", blank=True, null=True
     )
     description_course = models.TextField(verbose_name="Описание курса")
+    link_to_video_course = models.URLField(
+        verbose_name="Ссылка на видео курса", blank=True, null=True
+    )
     created_at_course = models.DateTimeField(
         auto_now_add=True, verbose_name="Дата создания курса"
     )
@@ -32,7 +35,9 @@ class Lesson(models.Model):
         upload_to="lessons/", verbose_name="Превью урока", blank=True, null=True
     )
     description_lesson = models.TextField(verbose_name="Описание урока")
-    link_to_video = models.URLField(verbose_name="Ссылка на видео")
+    link_to_video_lesson = models.URLField(
+        verbose_name="Ссылка на видео урока", blank=True, null=True
+    )
     created_at_lesson = models.DateTimeField(
         auto_now_add=True, verbose_name="Дата создания урока"
     )
