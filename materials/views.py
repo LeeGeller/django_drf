@@ -1,16 +1,17 @@
-from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import generics, viewsets, serializers
+from rest_framework import generics, viewsets
 from rest_framework.generics import (
     ListAPIView,
     UpdateAPIView,
     RetrieveAPIView,
     DestroyAPIView,
+    get_object_or_404,
 )
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
-from materials.models import Course, Lesson
+from materials.models import Course, Lesson, Subscription
 from materials.serializer import CourseSerializer, LessonSerializer
-from materials.validators import LinkToVideoValidator
 from users.permissions import IsModerator, IsOwner
 
 
@@ -68,3 +69,22 @@ class LessonDestroyAPIView(DestroyAPIView):
         IsAuthenticated,
         IsOwner,
     )
+
+
+class SubscriptionAPIView(APIView):
+    def post(self, request, *args, **kwargs):
+        user = request.user
+        course_id = request.data.get("course")
+        course_item = get_object_or_404(Course, id=course_id)
+
+        subscription_exists = Subscription.objects.filter(
+            user=user, course=course_item
+        ).exists()
+
+        if subscription_exists:
+            Subscription.objects.filter(user=user, course=course_item).delete()
+            message = "Вы отписались от курса"
+        else:
+            Subscription.objects.create(user=user, course=course_item)
+            message = "Вы подписались на курс"
+        return Response({"message": message})
