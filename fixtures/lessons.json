@@ -1,41 +1,80 @@
 [
 {
-    "model": "materials.lesson",
-    "pk": 1,
-    "fields": {
-        "title_lesson": "Introduction to Python",
-        "preview_lesson": "",
-        "description_lesson": "This lesson covers the basics of Python programming.",
-        "link_to_video": "https://example.com/python_intro",
-        "created_at_lesson": "2024-06-11T12:00:00Z",
-        "lessons": 1,
-        "owner": 7
-    }
+  "model": "materials.lesson",
+  "pk": 1,
+  "fields": {
+    "title_lesson": "Introduction to Python",
+    "preview_lesson": "",
+    "description_lesson": "This lesson covers the basics of Python programming.",
+    "link_to_video_lesson": null,
+    "created_at_lesson": "2024-06-11T12:00:00Z",
+    "lessons": 1,
+    "owner": 7
+  }
 },
 {
-    "model": "materials.lesson",
-    "pk": 2,
-    "fields": {
-        "title_lesson": "Advanced Django",
-        "preview_lesson": "",
-        "description_lesson": "This lesson covers advanced topics in Django.",
-        "link_to_video": "https://example.com/django_advanced",
-        "created_at_lesson": "2024-06-11T13:00:00Z",
-        "lessons": 2,
-        "owner": null
-    }
+  "model": "materials.lesson",
+  "pk": 2,
+  "fields": {
+    "title_lesson": "Advanced Django",
+    "preview_lesson": "",
+    "description_lesson": "This lesson covers advanced topics in Django.",
+    "link_to_video_lesson": null,
+    "created_at_lesson": "2024-06-11T13:00:00Z",
+    "lessons": 2,
+    "owner": null
+  }
 },
 {
-    "model": "materials.lesson",
-    "pk": 3,
-    "fields": {
-        "title_lesson": "Lesson 2",
-        "preview_lesson": "",
-        "description_lesson": "Description lesson",
-        "link_to_video": "https://www.google.com/search?client=ubuntu-sn&hs=Ixi&sca_esv=d517c7e4cb2bc49a&sca_upv",
-        "created_at_lesson": "2024-06-11T10:50:24.492Z",
-        "lessons": null,
-        "owner": 7
-    }
+  "model": "materials.lesson",
+  "pk": 3,
+  "fields": {
+    "title_lesson": "Lesson 2",
+    "preview_lesson": "",
+    "description_lesson": "Description lesson",
+    "link_to_video_lesson": null,
+    "created_at_lesson": "2024-06-11T10:50:24.492Z",
+    "lessons": null,
+    "owner": 7
+  }
+},
+{
+  "model": "materials.lesson",
+  "pk": 4,
+  "fields": {
+    "title_lesson": "Lesson 2",
+    "preview_lesson": "",
+    "description_lesson": "Description lesson",
+    "link_to_video_lesson": null,
+    "created_at_lesson": "2024-06-21T10:32:44.830Z",
+    "lessons": null,
+    "owner": 3
+  }
+},
+{
+  "model": "materials.lesson",
+  "pk": 5,
+  "fields": {
+    "title_lesson": "Test",
+    "preview_lesson": "",
+    "description_lesson": "Description test",
+    "link_to_video_lesson": null,
+    "created_at_lesson": "2024-06-21T10:33:40.749Z",
+    "lessons": null,
+    "owner": 3
+  }
+},
+{
+  "model": "materials.lesson",
+  "pk": 6,
+  "fields": {
+    "title_lesson": "Test1",
+    "preview_lesson": "",
+    "description_lesson": "Description test1",
+    "link_to_video_lesson": "https://www.youtube.com/channel/UCvtkFm0XlCLqyvtP7UpqAoA",
+    "created_at_lesson": "2024-06-21T10:36:09.293Z",
+    "lessons": null,
+    "owner": 3
+  }
 }
 ]
