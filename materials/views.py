@@ -17,7 +17,7 @@ from users.permissions import IsModerator, IsOwner
 
 
 class CourseViewSet(viewsets.ModelViewSet):
-    queryset = Course.objects.all()
+    queryset = Course.objects.all().order_by("pk")
     serializer_class = CourseSerializer
     pagination_class = CoursesPaginator
 
