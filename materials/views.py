@@ -12,7 +12,11 @@ from rest_framework.views import APIView
 
 from materials.models import Course, Lesson, Subscription
 from materials.paginators import CoursesPaginator
-from materials.serializer import CourseSerializer, LessonSerializer
+from materials.serializer import (
+    CourseSerializer,
+    LessonSerializer,
+    SubscriptionSerializer,
+)
 from users.permissions import IsModerator, IsOwner
 
 
@@ -75,6 +79,8 @@ class LessonDestroyAPIView(DestroyAPIView):
 
 
 class SubscriptionAPIView(APIView):
+    queryset = Subscription.objects.all()
+    serializer_class = SubscriptionSerializer
     permission_classes = (
         IsAuthenticated,
         IsOwner,
