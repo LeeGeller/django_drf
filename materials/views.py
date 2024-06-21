@@ -72,6 +72,12 @@ class LessonDestroyAPIView(DestroyAPIView):
 
 
 class SubscriptionAPIView(APIView):
+    permission_classes = (
+        IsAuthenticated,
+        IsOwner,
+        IsModerator,
+    )
+
     def post(self, request, *args, **kwargs):
         user = request.user
         course_id = request.data.get("course")
