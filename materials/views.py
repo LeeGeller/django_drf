@@ -1,5 +1,5 @@
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import generics, viewsets
+from rest_framework import generics, viewsets, serializers
 from rest_framework.generics import (
     ListAPIView,
     UpdateAPIView,
@@ -10,6 +10,7 @@ from rest_framework.permissions import IsAuthenticated
 
 from materials.models import Course, Lesson
 from materials.serializer import CourseSerializer, LessonSerializer
+from materials.validators import LinkToVideoValidator
 from users.permissions import IsModerator, IsOwner
 
 
