@@ -81,11 +81,7 @@ class LessonDestroyAPIView(DestroyAPIView):
 class SubscriptionAPIView(APIView):
     queryset = Subscription.objects.all()
     serializer_class = SubscriptionSerializer
-    permission_classes = (
-        IsAuthenticated,
-        IsOwner,
-        IsModerator,
-    )
+    permission_classes = (IsAuthenticated,)
 
     def post(self, request, *args, **kwargs):
         user = request.user
