@@ -14,8 +14,6 @@ class PaymentsListAPIView(generics.ListAPIView):
         OrderingFilter,
     )
     filterset_fields = (
-        "cash",
-        "transfer_to_account",
         "courses",
         "lessons",
     )

@@ -64,8 +64,8 @@ class Payments(models.Model):
 
     def __str__(self):
         return (
-            f"{self.user}, {self.date_of_payment}, {self.sum_of_payment}, {self.cash}, "
-            f"{self.transfer_to_account}, {self.courses}, {self.lessons}"
+            f"{self.user}, {self.date_of_payment}, {self.sum_of_payment}, "
+            f"{self.courses}, {self.lessons}"
         )
 
     class Meta:
