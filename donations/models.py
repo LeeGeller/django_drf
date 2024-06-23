@@ -1,5 +1,6 @@
 from django.db import models
 
+from materials.models import Course
 from users.models import User
 
 
@@ -11,6 +12,7 @@ class Donate(models.Model):
         blank=True,
         null=True,
     )
+    course = models.ForeignKey(Course, on_delete=models.SET_NULL, blank=True, null=True)
     amount = models.PositiveIntegerField(default=0, verbose_name="Сумма")
     session_id = models.CharField(
         max_length=200, verbose_name="Id сессии", blank=True, null=True
