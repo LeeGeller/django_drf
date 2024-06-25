@@ -158,18 +158,18 @@ SIMPLE_JWT = {
 
 STRIP_API_KEY = os.getenv("STRIP_API_KEY")
 
-CACHES = {
-    "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": os.getenv("LOCATION_REDIS"),
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient",
-        },
+CACHE_ENABLED = os.getenv("CACHE_ENABLED") == "True"
+
+if CACHE_ENABLED:
+    CACHES = {
+        "default": {
+            "BACKEND": "django.core.cache.backends.redis.RedisCache",
+            "LOCATION": os.getenv("LOCATION_REDIS"),
+        }
     }
-}
 
 # Celery Configuration Options
-CELERY_TIMEZONE = "Russia/Moscow"
+CELERY_TIMEZONE = "Europe/Moscow"
 CELERY_TASK_TRACK_STARTED = True
 CELERY_TASK_TIME_LIMIT = 30 * 60
 
