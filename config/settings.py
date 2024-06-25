@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "django_filters",
     "rest_framework_simplejwt",
     "drf_yasg",
+    "django_celery_beat",
     "materials",
     "users",
     "donations",
@@ -156,3 +157,34 @@ SIMPLE_JWT = {
 }
 
 STRIP_API_KEY = os.getenv("STRIP_API_KEY")
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": os.getenv("LOCATION_REDIS"),
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        },
+    }
+}
+
+# Celery Configuration Options
+CELERY_TIMEZONE = "Russia/Moscow"
+CELERY_TASK_TRACK_STARTED = True
+CELERY_TASK_TIME_LIMIT = 30 * 60
+
+CELERY_BROKER_URL = os.getenv(
+    "LOCATION_REDIS"
+)  # Например, Redis, который по умолчанию работает на порту 6379
+
+# URL-адрес брокера результатов, также Redis
+CELERY_RESULT_BACKEND = os.getenv("LOCATION_REDIS")
+
+CELERY_BEAT_SCHEDULE = {
+    "task-name": {
+        "task": "myapp.tasks.my_task",  # Путь к задаче
+        "schedule": timedelta(
+            minutes=10
+        ),  # Расписание выполнения задачи (например, каждые 10 минут)
+    },
+}
