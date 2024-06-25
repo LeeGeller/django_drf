@@ -4,7 +4,7 @@ from rest_framework.permissions import IsAuthenticated
 
 from donations.models import Donate
 from donations.serializer import DonateSerializer
-from donations.services import create_product
+from donations.services import create_donation
 
 
 class DonationsCreateAPIView(CreateAPIView):
@@ -13,10 +13,16 @@ class DonationsCreateAPIView(CreateAPIView):
     permission_classes = (IsAuthenticated,)
 
     def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+        donate = serializer.save(user=self.request.user)
         validated_data = serializer.validated_data
-        print(validated_data.get("id"))
-        # course = validated_data["course"]
-        # course_for_donate = create_product(
-        #     serializer.data["course"], serializer.data["user"]
-        # )
+        course_id, price = validated_data.get("course"), validated_data.get("amount")
+
+        course, session_id, donate_url = create_donation(
+            course_id, self.request.user, price
+        )
+
+        donate.course = course_id
+        donate.amount = price
+        donate.donate_url = donate_url
+        donate.session_id = session_id
+        donate.save()
