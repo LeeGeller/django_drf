@@ -73,4 +73,4 @@ class Subscription(models.Model):
         unique_together = ("user", "course")  # Уникальная связка пользователя и курса
 
     def __str__(self):
-        return f"{self.user.username} подписан на {self.course.title_course}"
+        return self.course
