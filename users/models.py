@@ -1,4 +1,6 @@
 from django.contrib.auth.models import AbstractUser
+from django.contrib.contenttypes.fields import GenericForeignKey
+from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 
@@ -28,7 +30,9 @@ class User(AbstractUser):
 
 
 class Payments(models.Model):
-    TYPE_OF_PAYMENTS = [(1, "Оплата курса"), (2, "Оплата урока")]
+
+    TYPE_OF_PAYMENTS = [("Курс", Course), ("Урок", Lesson)]
+
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
@@ -39,22 +43,13 @@ class Payments(models.Model):
     )
     created_ad = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
     date_of_payment = models.DateTimeField(verbose_name="Дата оплаты")
-    courses = models.ForeignKey(
-        Course,
-        verbose_name="Оплаченный курс",
-        blank=True,
-        null=True,
-        on_delete=models.CASCADE,
-        related_name="payment_courses",
+
+    content_type = models.ForeignKey(
+        ContentType, on_delete=models.CASCADE, verbose_name="Связь с продуктом"
     )
-    lessons = models.ForeignKey(
-        Lesson,
-        verbose_name="Оплаченный курс",
-        blank=True,
-        null=True,
-        on_delete=models.CASCADE,
-        related_name="payment_lessons",
-    )
+    product_id = models.PositiveIntegerField(verbose_name="ID продукта")
+    product = GenericForeignKey("content_type", "object_id")
+
     type_of_payment = models.CharField(
         max_length=150,
         verbose_name="Тип оплаты",
@@ -63,10 +58,7 @@ class Payments(models.Model):
     sum_of_payment = models.PositiveIntegerField(verbose_name="Сумма оплаты")
 
     def __str__(self):
-        return (
-            f"{self.user}, {self.date_of_payment}, {self.sum_of_payment}, "
-            f"{self.courses}, {self.lessons}"
-        )
+        return f"{self.user}, {self.date_of_payment}, {self.sum_of_payment}"
 
     class Meta:
         verbose_name = "Оплата"
