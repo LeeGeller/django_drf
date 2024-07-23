@@ -70,7 +70,7 @@ class Subscription(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        unique_together = ("user", "course")  # Уникальная связка пользователя и курса
+        unique_together = ("user", "course")
 
     def __str__(self):
-        return self.course
+        return f"{self.user} - {self.course}"

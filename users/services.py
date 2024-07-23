@@ -19,9 +19,8 @@ def create_price(price, product):
     return price.id
 
 
-def create_donation(course_id, user, price):
-
-    product_id = create_product(course_id, user)
+def create_donation(course_title, user_email, price):
+    product_id = create_product(course_title, user_email)
     price_id = create_price(price, product_id)
 
     session = stripe.checkout.Session.create(

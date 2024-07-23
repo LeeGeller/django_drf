@@ -1,7 +1,7 @@
 version: '3'
 
 networks:
-  lessons_drf_network:
+  django_drf_network:
     driver: bridge
 
 services:
@@ -35,8 +35,6 @@ services:
       timeout: 5s
       retries: 10
 
-
-
   app:
     build: .
     tty: true
@@ -44,7 +42,7 @@ services:
     networks:
       - django_drf_network
     ports:
-      - '8001:8000'
+      - '8000:8000'
     env_file:
       - .env
     depends_on:
@@ -73,7 +71,7 @@ services:
   celery_beat:
     build: .
     networks:
-      - lessons_drf_network
+      - django_drf_network
     tty: true
     command: [ "sh", "-c", "celery -A config beat -l INFO && celery -A config -l info -P gevent" ]
     env_file:

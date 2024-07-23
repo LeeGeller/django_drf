@@ -30,8 +30,7 @@ class User(AbstractUser):
 
 
 class Payments(models.Model):
-
-    TYPE_OF_PAYMENTS = [("Курс", Course), ("Урок", Lesson)]
+    TYPE_OF_PAYMENTS = [("Курс", "course"), ("Урок", "lesson")]
 
     user = models.ForeignKey(
         User,
@@ -47,7 +46,7 @@ class Payments(models.Model):
     content_type = models.ForeignKey(
         ContentType, on_delete=models.CASCADE, verbose_name="Связь с продуктом"
     )
-    product_id = models.PositiveIntegerField(verbose_name="ID продукта")
+    object_id = models.PositiveIntegerField(verbose_name="ID продукта")
     product = GenericForeignKey("content_type", "object_id")
 
     type_of_payment = models.CharField(
