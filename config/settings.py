@@ -177,12 +177,6 @@ CELERY_TASK_TIME_LIMIT = 30 * 60
 
 CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
 
-CELERY_BEAT_SCHEDULE = {
-    "task-name": {
-        "task": "materials.tasks.send_information_about_update",
-        "schedule": timedelta(minutes=1),
-    },
-}
 
 # Email
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
