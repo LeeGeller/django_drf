@@ -26,20 +26,26 @@ class PaymentsCreateAPIView(generics.CreateAPIView):
     serializer_class = PaymentsSerializer
 
     def perform_create(self, serializer):
+
         payments = serializer.save(user=self.request.user)
         validated_data = serializer.validated_data
-        course_id, price = validated_data.get("course"), validated_data.get(
-            "sum_of_payment"
+
+        if validated_data.get("course"):
+
+            product_id, price = validated_data.get("course"), validated_data.get(
+                "sum_of_payment"
+            )
+        elif validated_data.get("lesson"):
+            product_id, price = validated_data.get("lesson"), validated_data.get(
+                "sum_of_payment"
+            )
+
+        stripe_id, session_id, donate_url = create_donation(
+            product_id, self.request.user, price
         )
-        course, session_id, donate_url = create_donation(
-            course_id, self.request.user, price
-        )
-        payments.course = course_id
-        payments.amount = price
+
         payments.donate_url = donate_url
         payments.session_id = session_id
-        payments.save()
-
         payments.save()
 
 

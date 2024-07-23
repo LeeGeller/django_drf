@@ -18,7 +18,6 @@ class UserAdmin(admin.ModelAdmin):
 class PaymentsAdmin(admin.ModelAdmin):
     list_display = (
         "user",
-        "date_of_payment",
         "sum_of_payment",
         "type_of_payment",
     )
