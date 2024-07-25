@@ -21,8 +21,14 @@ class Course(models.Model):
         related_name="course_owner",
     )
 
+    def update_course(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        from materials.tasks import send_course_update_notifications
+
+        send_course_update_notifications.delay(self.id)
+
     def __str__(self):
-        return self.title_course
+        return self.title
 
     class Meta:
         verbose_name = "Курс"
